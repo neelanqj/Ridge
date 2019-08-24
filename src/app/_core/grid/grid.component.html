@@ -1,0 +1,11 @@
+<button (click)="refresh()">Refresh Grid</button>
+
+<ag-grid-angular
+    #dynamicGrid
+ 
+    style="width: 500px; height: 500px;" 
+    class="ag-theme-balham"
+    
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs">
+</ag-grid-angular>

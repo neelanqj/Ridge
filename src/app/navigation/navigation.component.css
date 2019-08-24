@@ -1,0 +1,14 @@
+.navigation-container {
+  height: 100%;
+  margin: 10px;
+  position: absolute;
+  float:left;
+}
+
+.navigation-icon {
+  padding: 0 14px;
+}
+
+.navigation-spacer {
+  flex: 1 1 auto;
+}

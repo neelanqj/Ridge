@@ -1,0 +1,15 @@
+<div>
+  <h2>files</h2>
+  <div class="progress" *ngIf="progress && progress.percentage < 100">
+      <div class="progress-bar" [style.width]="progress.percentage + '%'">
+        <span class="sr-only">{{ progress.percentage }}% Completed</span>
+      </div>
+  </div>
+
+  <div>
+    <input type="file" (change)="uploadFile()" #fileInput  />
+  </div>
+
+  <span *ngFor="let file of files" class="img-thumbnail" >hi</span>
+
+</div>

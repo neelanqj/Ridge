@@ -3,6 +3,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AlertifyService } from '../_services/alertify.service';
+import { constants } from '../../assets/constants';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -11,12 +12,13 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError(error => {
         if (error instanceof HttpErrorResponse) {
-          if(error.status === 401) {
+          if([401,-1,0].includes(error.status)) {
+            this.alertify.error(constants.errors.msg1);
             return throwError(error.statusText);
           }
           const applicationError = error.headers.get('Application-Error');
           if (applicationError) {
-            console.error(applicationError);
+            this.alertify.error(applicationError);
             return throwError(applicationError);
           }
           const serverError = error.error;
@@ -28,6 +30,8 @@ export class ErrorInterceptor implements HttpInterceptor {
               }
             }
           }
+          
+          this.alertify.error('Server Error');
           return throwError(modelStateErrors || serverError || 'Server Error');
         }
       })

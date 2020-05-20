@@ -15,7 +15,6 @@ import { SelectComponent } from './_core/select/select.component';
 import { ButtonComponent } from './_core/button/button.component';
 import { InputComponent } from './_core/input/input.component';
 import { HomeComponent } from './home/home.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { GridComponent } from './_core/grid/grid.component';
 
 import {AgGridModule} from 'ag-grid-angular';
@@ -28,6 +27,7 @@ import { ErrorComponent } from './error/error.component';
 import { AlertifyService } from './_services/alertify.service';
 import { UploaderComponent } from './uploader/uploader.component';
 import { FileService } from './_services/file.service';
+import { LogInComponent } from './log-in/log-in.component';
 
 @NgModule({
    declarations: [
@@ -41,11 +41,11 @@ import { FileService } from './_services/file.service';
       DynamicFieldDirective,
       DynamicFormComponent,
       HomeComponent,
-      NavigationComponent,
       GridComponent,
       PopupComponent,
       ErrorComponent,
-      UploaderComponent
+      UploaderComponent,
+      LogInComponent
    ],
    imports: [
       BrowserModule,

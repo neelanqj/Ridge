@@ -1,2 +1,7 @@
-.main-content {
+.main-container {
+  position: relative;
+  display:inline-flexbox;
+  padding:2em;
+  margin: 2em;
+  background-color: red;
 }
